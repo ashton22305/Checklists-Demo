@@ -15,23 +15,22 @@ class ChecklistItem {
 function drawChecklist(id, checklist) {
     const location = document.getElementById(id);
     location.setAttribute("class", "checklist");
-    alert(checklist.items);
     checklist.items.forEach((item) => addChecklistItemElement(location, item));
 }
 
 function addChecklistItemElement(location, item) {
-    const checklistItemElement = document.createElement(div);
+    const checklistItemElement = document.createElement("div");
     checklistItemElement.setAttribute("class", "checklist-item");
 
-    const checkbox = document.createElement(input);
+    const checkbox = document.createElement("input");
     checkbox.setAttribute("type", "checkbox");
     checklistItemElement.appendChild(checkbox);
 
-    const inputbox = document.createElement(input);
+    const inputbox = document.createElement("input");
     checklistItemElement.appendChild(inputbox);
 
-    location.appendChild(checklistItemElement);
-    alert(item);
+    location.append(checklistItemElement);
+    location.append(document.createElement("div"))
 }
 
 // Used for sample values
@@ -47,5 +46,4 @@ function generateSampleChecklist() {
 window.addEventListener("load", () => {
     const sampleChecklist = generateSampleChecklist();
     drawChecklist("content", sampleChecklist);
-    alert("test!");
 });
